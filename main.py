@@ -1,16 +1,33 @@
-# This is a sample Python script.
+print("1 2 3")
+print("4 5 6")
+print("7 8 9")
+list_ = [i + 1 for i in range(9)]
+symb = " "
+i = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def check_win():
+    if list_[0] == list_[1] == list_[2] or list_[3] == list_[4] == list_[5] or list_[6] == list_[7] == list_[8] or list_[0] == list_[3] == list_[6] or list_[1] == list_[4] == list_[7] or list_[2] == list_[5] == list_[8] or list_[0] == list_[4] == list_[8] or list_[2] == list_[4] == list_[6]:
+        print(f"Выиграл: {symb}")
+        return True
+    else:
+        return False
 
+while True:
+    i = i + 1
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    print(i)
 
+    if i % 2 == 1:
+        symb = "X"
+    else:
+        symb = "Y"
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    k = int(input("Введите координаты от 1 до 9: "))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if list_[k-1] != "X" and list_[k-1] != "Y":
+        list_[k - 1] = symb
+    else:
+        print("Координаты заняты!")
+
+    if check_win():
+        break
